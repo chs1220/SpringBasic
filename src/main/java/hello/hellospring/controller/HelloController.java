@@ -12,7 +12,7 @@ public class HelloController {
     @GetMapping("hello")
     public String hello(Model model) {
         model.addAttribute("data", "hello!!");
-        return "hello";
+        return "hello"; // return 값과 같은 html 이름을 찾아감
     }
 
 
@@ -20,7 +20,7 @@ public class HelloController {
     @GetMapping("hello-mvc")
     public String helloMvc(@RequestParam("name") String name, Model model) {
         model.addAttribute("name", name);
-        return "hello-template";
+        return "hello-template"; // return 값과 같은 html 이름을 찾아감
     }
 
 
@@ -29,7 +29,7 @@ public class HelloController {
     @GetMapping("hello-string")
     @ResponseBody
     public String helloString(@RequestParam("name") String name) {
-        return "hello" + name;
+        return "hello" + name;  // return 값 그대로를 문자 출력
     }
 
 
@@ -41,7 +41,7 @@ public class HelloController {
     public Hello helloApi(@RequestParam("name") String name) {
         Hello hello = new Hello();
         hello.setName(name);
-        return hello;
+        return hello; // return 값(json) 그대로를 문자 출력
     }
 
     static class Hello {

@@ -14,14 +14,14 @@ import java.util.Optional;
 
 class MemoryMemberRepositoryTest {
 
-    // TDD (테스트 주도 개발) : 테스트를 먼저 만든 이후 구현 클래스를 작성, 검증한다.
+    // ++) TDD (테스트 주도 개발) 란 테스트를 먼저 만든 이후 구현 클래스를 작성, 검증하는 방법이다.
 
     MemoryMemberRepository repository = new MemoryMemberRepository();
 
-    @AfterEach // **** 각 테스트가 진행된 후 매번 작동하는 메서드 , 지금은 테스트 객체를 삭제한다 ****
+    // 테스트는 메서드간 영향이 없게끔 설계 되어야 한다. 객체 생성, 공유되는 것 등은 비워주어야 한다
+    @AfterEach // **** 각 테스트가 진행된 후 매번 작동하는 메서드 , 테스트를 위해 생성한 객체를 삭제한다 ****
     public void afterEach(){
         repository.clear();
-        // 테스트는 메서드간 영향이 없게끔 설계 되어야 한다. 객체 생성, 공유되는 것 등은 비워주어야 한다
     }
 
 
@@ -37,7 +37,7 @@ class MemoryMemberRepositoryTest {
         //    System.out.println("result = " + (result==member) );
         // 2. Assert 기능 : 기댓값, 실제값
         //    Assertions.assertEquals(member, result);
-        // 3. 요즘 많이 쓰는 Assertions (static import)
+        // 3. 요즘 많이 쓰는 assertThat (org.assertj.core.api.Assertions )
         assertThat(result).isEqualTo(member);
     }
 

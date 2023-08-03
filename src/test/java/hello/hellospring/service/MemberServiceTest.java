@@ -15,8 +15,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class MemberServiceTest {
     //자동으로 테스트 만들기 : ctrl + shift + T
 
-    MemberService memberService ;
-    MemoryMemberRepository memberRepository ;
+    MemberService memberService;
+    MemoryMemberRepository memberRepository;
     // MemoryMemberRepository memberRepository =   new MemoryMemberRepository();
     // MemberService 의 memberRepository와  Test 에서의 memberRepository가 각각 다른 인스턴스인데... 통일 시키는게 좋다
     // MemberService 의 memberRepository를 생성자를 만들어 외부에서 인스턴스 생성하게 변경
@@ -60,6 +60,7 @@ class MemberServiceTest {
         //when : 중복 이름 가입 검증
 
         memberService.join(member1);
+        // 오른쪽 람다식의 로직을 실행할 때 IllegalStateException.class 이 예외가 터져야 한다.
         IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));
 
         assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
