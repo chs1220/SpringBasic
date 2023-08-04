@@ -7,6 +7,8 @@ import java.util.*;
 
 public class MemoryMemberRepository implements MemberRepository {
 
+    // DB연결 방법 확정짓기 전 임시로 빌드
+
     // 회원 정보를 담아둘 공간 마련 (DB 역할)
     private static Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;
